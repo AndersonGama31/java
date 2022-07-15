@@ -9,8 +9,7 @@ public class SaldoBancario {
 
 
         double saldoAtual = 10000;
-        double movimentacao = 0;
-        double t = 0;
+        double movimentacao;
         int c = 0;
         double credito = 0;
         double debito = 0;
