@@ -1,11 +1,12 @@
+package bhaskara;
 
 public class Equacao {
 
-    private int a;
-    private int b;
-    private int c;
+    private double a;
+    private double b;
+    private double c;
 
-    public Equacao(int a, int b, int c) {
+    public Equacao(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -45,7 +46,7 @@ public void print(){
 
 }
 
-    public int getA() {
+    public double getA() {
         return a;
     }
 
@@ -53,7 +54,7 @@ public void print(){
         this.a = a;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
@@ -61,7 +62,7 @@ public void print(){
         this.b = b;
     }
 
-    public int getC() {
+    public double getC() {
         return c;
     }
 
