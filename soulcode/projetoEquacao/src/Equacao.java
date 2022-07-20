@@ -1,11 +1,6 @@
-import java.util.Scanner;
 
 public class Equacao {
 
-    //X**+bx+c = 0;
-    //Atribuição do valor de a, b, c, delta, b2, v2;
-
-    //Declarar variáveis;
     private int a;
     private int b;
     private int c;
