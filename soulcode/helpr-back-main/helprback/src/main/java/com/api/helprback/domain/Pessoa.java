@@ -1,20 +1,32 @@
 package com.api.helprback.domain;
 
 import com.api.helprback.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public abstract class Pessoa {
+@Entity
+public abstract class Pessoa implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
-    protected Integer nome;
-    protected Integer cpf;
-    protected Integer email;
-    protected Integer senha;
+    protected String nome;
+    @Column(unique = true)
+    protected String cpf;
+    @Column(unique = true)
+    protected String email;
+    protected String senha;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="PERFIS")
     protected Set<Integer> perfis = new HashSet<>();
+    @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
     public Pessoa() {
@@ -22,7 +34,7 @@ public abstract class Pessoa {
         addPerfis(Perfil.CLIENTE);
     }
 
-    public Pessoa(Integer id, Integer nome, Integer cpf, Integer email, Integer senha) {
+    public Pessoa(Integer id, String nome, String cpf, String email, String senha) {
        super();
         this.id = id;
         this.nome = nome;
@@ -40,35 +52,35 @@ public abstract class Pessoa {
         this.id = id;
     }
 
-    public Integer getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(Integer nome) {
+    public void String(String nome) {
         this.nome = nome;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public Integer getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(Integer email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public Integer getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(Integer senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
